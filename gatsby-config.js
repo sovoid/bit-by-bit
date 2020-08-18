@@ -1,5 +1,5 @@
 const path = require('path');
-const alias = require('./webpack-aliases');
+const alias = require('./webpack-alias');
 const rssConfig = require('./rss-plugin-config');
 
 module.exports = {
@@ -26,34 +26,34 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-flow`,
     `gatsby-plugin-styled-components`,
-    {
-      resolve: `gatsby-plugin-mdx`,
-      options: {
-        defaultLayouts: {
-          post: require.resolve('./src/components/BlogPost/BlogPost.js'),
-        },
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `posts`,
-        path: `${__dirname}/src/pages/posts`,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-filesystem`,
-      options: {
-        name: `images`,
-        path: path.join(__dirname, 'src', 'assets', 'images'),
-      },
-    },
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: process.env.GA_TRACKING_ID,
-        cookieExpires: 63072000, // two years
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-mdx`,
+    //   options: {
+    //     defaultLayouts: {
+    //       post: require.resolve('./src/components/BlogPost/BlogPost.js'),
+    //     },
+    //   },
+    // },
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     name: `posts`,
+    //     path: `${__dirname}/src/pages/posts`,
+    //   },
+    // },
+    // {
+    //   resolve: `gatsby-plugin-filesystem`,
+    //   options: {
+    //     name: `images`,
+    //     path: path.join(__dirname, 'src', 'assets', 'images'),
+    //   },
+    // },
+    // {
+    //   resolve: `gatsby-plugin-google-analytics`,
+    //   options: {
+    //     trackingId: process.env.GA_TRACKING_ID,
+    //     cookieExpires: 63072000, // two years
+    //   },
+    // },
   ],
 };
