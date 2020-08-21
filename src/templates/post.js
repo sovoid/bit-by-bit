@@ -1,12 +1,12 @@
 import React from "react";
 import { graphql } from "gatsby";
 import { Helmet } from "react-helmet";
-import twemoji from "twemoji";
 import styled from "styled-components";
 
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 import CategoryLabel from "../components/CategoryLabel";
+import DifficultyIcons from "../svg/difficulty";
 import PostJsonLd from "../components/json/PostJsonLd";
 import RelatedPosts from "../components/RelatedPosts";
 import ShareButtons from "../components/ShareButtons";
@@ -107,7 +107,14 @@ class BlogPostTemplate extends React.Component {
     const post = this.props.data.markdownRemark;
     const siteTitle = this.props.data.site.siteMetadata.title;
     const { relatedPosts, slug } = this.props.pageContext;
-    const { title, description, date, category, emoji } = post.frontmatter;
+    const {
+      title,
+      description,
+      date,
+      category,
+      emoji,
+      difficulty,
+    } = post.frontmatter;
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title={title} description={description || post.excerpt} />
@@ -125,18 +132,13 @@ class BlogPostTemplate extends React.Component {
           categorySlug={category}
         />
         <Content>
-          <HeroImage
-            dangerouslySetInnerHTML={{
-              __html: twemoji.parse(emoji || "😺", {
-                folder: "svg",
-                ext: ".svg",
-              }),
-            }}
-          />
+          <HeroImage>
+            <img src={DifficultyIcons[difficulty]} alt="Difficulty" />
+          </HeroImage>
           <ContentMain>
             <PostDate>{date}</PostDate>
             <PostTitle>{title}</PostTitle>
-            {category.map(eachCategory => (
+            {category.map((eachCategory) => (
               <CategoryLabel slug={eachCategory} isLink="true" />
             ))}
             <PostContent dangerouslySetInnerHTML={{ __html: post.html }} />
@@ -172,6 +174,7 @@ export const pageQuery = graphql`
         date(formatString: "YYYY.MM.DD")
         emoji
         category
+        difficulty
       }
     }
   }

@@ -51,6 +51,7 @@ export const pageQuery = graphql`
             title
             emoji
             category
+            difficulty
           }
         }
       }

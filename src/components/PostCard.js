@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
-import twemoji from "twemoji";
+
 import CategoryLabel from "../components/CategoryLabel";
+import DifficultyIcons from "../svg/difficulty";
 
 const PostCardWrapper = styled.div`
   .post-card-link {
@@ -71,19 +72,18 @@ const PostCardContent = styled.div`
 
 const PostCard = ({ node }) => {
   const title = node.frontmatter.title || node.fields.slug;
-  const emoji = twemoji.parse(node.frontmatter.emoji || "🐱", {
-    folder: "svg",
-    ext: ".svg",
-  });
+  const emoji = DifficultyIcons[node.frontmatter.difficulty];
 
   return (
     <PostCardWrapper>
       <Link to={node.fields.slug} className="post-card-link">
-        <PostCardEmoji dangerouslySetInnerHTML={{ __html: emoji }} />
+        <PostCardEmoji>
+          <img src={emoji} alt="Difficulty" />
+        </PostCardEmoji>
         <PostCardContent>
           <h3>{title}</h3>
           <time>{node.frontmatter.date}</time>
-          {node.frontmatter.category.map(eachCategory => (
+          {node.frontmatter.category.map((eachCategory) => (
             <CategoryLabel slug={eachCategory} />
           ))}
         </PostCardContent>

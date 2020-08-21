@@ -4,11 +4,12 @@ date: 2020-08-20T18:04:52.786Z
 emoji: "😄"
 category: ["google"]
 description: "Given a string containing just the characters `'('`,` ')'`, `'{'`, `'}'`, `'['` and `']'`, determine if the input string is valid."
+difficulty: "easy"
 ---
 
 ## [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/)
 
-Given a string containing just the characters `'('`,` ')'`, `'{'`, `'}'`, `'['` and `']'`, determine if the input string is valid.
+Given a string containing just the characters `'('`,`')'`, `'{'`, `'}'`, `'['` and `']'`, determine if the input string is valid.
 
 An input string is valid if:
 
@@ -34,7 +35,7 @@ Example 3:
 Example 4:
 
 **Input**: `"([)]"`  
-**Output**: `false`  
+**Output**: `false`
 
 Example 5:
 
@@ -52,13 +53,13 @@ public:
             {'}', '{'},
             {']', '['}
         };
-        
+
         stack<char> st;
-        
+
         for(auto ch: s) {
             if(ch == '(' || ch == '{' || ch == '[')
                 st.push(ch);
-            
+
             if(match.find(ch) != match.end()) {
                 if(st.empty() || match[ch] != st.top())
                     return false;
@@ -66,7 +67,7 @@ public:
                     st.pop();
             }
         }
-        
+
         return st.empty();
     }
 };
