@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
-import twemoji from "twemoji";
+import DifficultyIcons from "../svg/difficulty";
 
 const Wrapper = styled.div`
   background: ${(props) => props.theme.colors.whitesmoke};
@@ -69,15 +69,14 @@ const PostCardContent = styled.div`
 
 const RelatedPostCard = ({ node }) => {
   const title = node.frontmatter.title || node.fields.slug;
-  const emoji = twemoji.parse(node.frontmatter.emoji || "🐱", {
-    folder: "svg",
-    ext: ".svg",
-  });
+  const emoji = DifficultyIcons[node.frontmatter.difficulty];
 
   return (
     <PostCardWrapper>
       <Link to={node.fields.slug} className="post-card-link">
-        <PostCardEmoji dangerouslySetInnerHTML={{ __html: emoji }} />
+        <PostCardEmoji>
+          <img src={emoji} alt="Difficulty" />
+        </PostCardEmoji>
         <PostCardContent>
           <h5>{title}</h5>
           <time>{node.frontmatter.date}</time>

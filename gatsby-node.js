@@ -22,6 +22,7 @@ exports.createPages = ({ graphql, actions }) => {
                 date(formatString: "YYYY.MM.DD")
                 emoji
                 category
+                difficulty
               }
             }
           }
