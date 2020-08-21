@@ -49,7 +49,7 @@ class CategoryTemplate extends React.Component {
 export default CategoryTemplate;
 
 export const pageQuery = graphql`
-  query BlogPostByCategory($category: String) {
+  query BlogPostByCategory($category: [String]) {
     site {
       siteMetadata {
         categories {
@@ -62,7 +62,7 @@ export const pageQuery = graphql`
     allMarkdownRemark(
       limit: 1000
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { category: { eq: $category } } }
+      filter: { frontmatter: { category: { in: $category } } }
     ) {
       edges {
         node {

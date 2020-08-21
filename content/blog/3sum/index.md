@@ -1,6 +1,6 @@
 ---
 title: 3sum
-category: "adobe"
+category: ["adobe", "array"]
 date: "2020-08-20T16:50:51.354Z"
 description: "Find all unique triplets in the array which gives the sum of zero."
 emoji: "😄"

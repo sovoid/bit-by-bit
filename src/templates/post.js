@@ -136,7 +136,9 @@ class BlogPostTemplate extends React.Component {
           <ContentMain>
             <PostDate>{date}</PostDate>
             <PostTitle>{title}</PostTitle>
-            <CategoryLabel slug={category} isLink="true" />
+            {category.map(eachCategory => (
+              <CategoryLabel slug={eachCategory} isLink="true" />
+            ))}
             <PostContent dangerouslySetInnerHTML={{ __html: post.html }} />
             <FollowBudge />
           </ContentMain>

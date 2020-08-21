@@ -33,6 +33,66 @@ module.exports = {
         slug: "google",
         color: "#ffaddb",
       },
+      {
+        name: "Array",
+        slug: "array",
+        color: "#ed716a",
+      },
+      {
+        name: "Backtracking",
+        slug: "backtracking",
+        color: "#f4cab0",
+      },
+      {
+        name: "Bits",
+        slug: "bits",
+        color: "#3d3d3d",
+      },
+      {
+        name: "D&C",
+        slug: "divide-and-conquer",
+        color: "#bebbf9",
+      },
+      {
+        name: "DP",
+        slug: "dynamic-programming",
+        color: "#537dd1",
+      },
+      {
+        name: "Graph",
+        slug: "graph",
+        color: "#8e1601",
+      },
+      {
+        name: "Heap",
+        slug: "heap",
+        color: "#b8e07d",
+      },
+      {
+        name: "Linked List",
+        slug: "linked-list",
+        color: "#f79d6c",
+      },
+      {
+        name: "Queue",
+        slug: "queue",
+        color: "#45e8dd",
+      },
+      {
+        name: "Stack",
+        slug: "stack",
+        color: "#e502bf",
+      },
+      {
+        name: "String",
+        slug: "string",
+        color: "#ffd8c4",
+      },
+      {
+        name: "Tree",
+        slug: "tree",
+        color: "#8110ea",
+      },
     ],
   },
   plugins: [

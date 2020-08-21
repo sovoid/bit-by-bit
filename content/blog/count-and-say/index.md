@@ -1,6 +1,6 @@
 ---
 title: Count and Say
-category: "adobe"
+category: ["adobe"]
 date: "2020-08-20T16:51:51.354Z"
 emoji: "😄"
 description: "Given an integer _n_ where _1 ≤ n ≤ 30_, generate the *n*th term of the count-and-say sequence."

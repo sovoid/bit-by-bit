@@ -1,7 +1,7 @@
 ---
 title: "Strobogrammatic Number"
 date: "2020-08-20T16:43:51.354Z"
-category: "google"
+category: ["google"]
 description: "Write a function to determine if a number is strobogrammatic."
 emoji: "😄"
 ---

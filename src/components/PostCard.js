@@ -83,7 +83,9 @@ const PostCard = ({ node }) => {
         <PostCardContent>
           <h3>{title}</h3>
           <time>{node.frontmatter.date}</time>
-          <CategoryLabel slug={node.frontmatter.category} />
+          {node.frontmatter.category.map(eachCategory => (
+            <CategoryLabel slug={eachCategory} />
+          ))}
         </PostCardContent>
       </Link>
     </PostCardWrapper>

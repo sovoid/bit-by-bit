@@ -2,7 +2,7 @@
 title: Valid Parenthesis
 date: 2020-08-20T18:04:52.786Z
 emoji: "😄"
-category: "google"
+category: ["google"]
 description: "Given a string containing just the characters `'('`,` ')'`, `'{'`, `'}'`, `'['` and `']'`, determine if the input string is valid."
 ---
 

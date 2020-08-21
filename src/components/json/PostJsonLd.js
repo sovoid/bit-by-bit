@@ -2,12 +2,12 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import { StaticQuery, graphql } from "gatsby";
 
-const PostJsonLD = ({ title, description, date, categorySlug, url }) => {
+const PostJsonLD = ({ title, description, date, url }) => {
   return (
     <StaticQuery
       query={jsonLdPostQuery}
       render={(data) => {
-        const { siteUrl, author, categories } = data.site.siteMetadata;
+        const { siteUrl, author } = data.site.siteMetadata;
         const dateFormatted = date.replace(/\./g, "-");
         const publisher = {
           "@type": "Organization",
@@ -41,13 +41,6 @@ const PostJsonLD = ({ title, description, date, categorySlug, url }) => {
 
         //bread crumbs
         //get category name from slug
-        const categoryObject = categories.find((cat) => {
-          return cat.slug === categorySlug;
-        });
-        const categoryName = categoryObject
-          ? categoryObject.name
-          : categorySlug;
-
         const jsonBreadCrumbs = {
           "@context": "http://schema.org",
           "@type": "BreadcrumbList",
@@ -63,14 +56,6 @@ const PostJsonLD = ({ title, description, date, categorySlug, url }) => {
             {
               "@type": "ListItem",
               position: 2,
-              item: {
-                "@id": `${siteUrl}/${categorySlug}`,
-                name: categoryName,
-              },
-            },
-            {
-              "@type": "ListItem",
-              position: 3,
               item: {
                 "@id": url,
                 name: title,
@@ -99,10 +84,6 @@ const jsonLdPostQuery = graphql`
       siteMetadata {
         siteUrl
         author
-        categories {
-          name
-          slug
-        }
       }
     }
   }

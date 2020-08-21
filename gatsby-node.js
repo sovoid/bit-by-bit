@@ -1,5 +1,6 @@
 const path = require(`path`);
 const { createFilePath } = require(`gatsby-source-filesystem`);
+const _ = require(`underscore`);
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
@@ -36,13 +37,14 @@ exports.createPages = ({ graphql, actions }) => {
 
     // Create category posts pages
     // ref: https://www.gatsbyjs.org/docs/adding-tags-and-categories-to-blog-posts/
-    let categories = [];
+    let categories = new Set();
     posts.forEach((post) => {
       if (post.node.frontmatter.category) {
-        categories.push(post.node.frontmatter.category);
+        for (let eachCategory of post.node.frontmatter.category)
+          categories.add(eachCategory);
       }
     });
-    categories = new Set(categories);
+
     categories.forEach((category) => {
       createPage({
         path: `/category/${category}/`,
@@ -57,7 +59,7 @@ exports.createPages = ({ graphql, actions }) => {
     let allRelatedPosts = {};
     categories.forEach((category) => {
       let categoryPosts = posts.filter((post) => {
-        return post.node.frontmatter.category === category;
+        return post.node.frontmatter.category.includes(category);
       });
       allRelatedPosts[category] = categoryPosts
         ? categoryPosts.slice(0, 5)
@@ -72,10 +74,17 @@ exports.createPages = ({ graphql, actions }) => {
 
       // setup related posts
       // get the posts that has same categories.
-      let relatedPosts = allRelatedPosts[post.node.frontmatter.category];
-      // remove myself
-      relatedPosts = relatedPosts.filter((relatedPost) => {
-        return !(relatedPost.node.fields.slug === post.node.fields.slug);
+
+      let relatedPosts = _.filter(posts, (eachPost) => {
+        if (
+          !(eachPost.node.fields.slug === post.node.fields.slug) &&
+          _.intersection(
+            post.node.frontmatter.category,
+            eachPost.node.frontmatter.category
+          ).length
+        ) {
+          return true;
+        }
       });
 
       createPage({

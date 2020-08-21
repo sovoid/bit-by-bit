@@ -3,10 +3,11 @@ import { Link, StaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
+   display: inline-block;
+   margin: 3px;
   .category-text {
     padding: 0.3em 1em;
     display: inline-block;
-    display: inline;
     padding: 3px 6px;
     line-height: 1.2;
     font-size: 12px;
