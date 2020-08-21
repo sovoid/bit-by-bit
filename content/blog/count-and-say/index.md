@@ -41,7 +41,7 @@ Example 2:
 
 ## C++
 
-```cpp
+```cpp{numberLines: true}
 class Solution {
 public:
     string countAndSay(int n) {

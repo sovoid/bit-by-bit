@@ -172,6 +172,12 @@ const SyntaxHighlightStyle = css`
     line-height: 1.4;
     color: #454e63 !important;
   }
+
+  /* Line Number Plugin */
+  .gatsby-highlight pre[class*="language-"].line-numbers {
+    padding: 0;
+    padding-left: 2.8em;
+  }
 `;
 
 export default SyntaxHighlightStyle;
