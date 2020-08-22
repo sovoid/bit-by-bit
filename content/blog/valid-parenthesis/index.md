@@ -44,10 +44,12 @@ Example 5:
 
 ## C++
 
-```cpp
+```cpp{numberLines: true}
 class Solution {
 public:
     bool isValid(string s) {
+
+        // Map storing valid parenthesis matches
         unordered_map<char, char> match = {
             {')', '('},
             {'}', '{'},
@@ -57,10 +59,12 @@ public:
         stack<char> st;
 
         for(auto ch: s) {
+            // Push all parenthesis start to the stack
             if(ch == '(' || ch == '{' || ch == '[')
                 st.push(ch);
 
             if(match.find(ch) != match.end()) {
+                // If closing parenthesis are imbalanced
                 if(st.empty() || match[ch] != st.top())
                     return false;
                 else
@@ -68,6 +72,7 @@ public:
             }
         }
 
+        // If starting parenthesis are imbalanced
         return st.empty();
     }
 };

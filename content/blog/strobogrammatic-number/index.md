@@ -23,6 +23,9 @@ public:
     bool isStrobogrammatic(string s) {
         int n = s.size();
 
+        // Map storing valid possible characters
+        // that can appear in strobogrammatic
+        // numbers
         unordered_map <char, char> match = {
             {'0', '0'},
             {'1', '1'},
@@ -31,9 +34,13 @@ public:
             {'9', '6'}
         }
 
+        // Use the two-pointer trick to
+        // compress down to the center
         int start = 0, end = n-1;
 
         while(start <= end) {
+            // If keys don't match return
+            // false
             if(match(s[start]) != s[end])
                 return false;
 
