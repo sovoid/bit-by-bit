@@ -86,7 +86,7 @@ module.exports = {
       {
         name: "String",
         slug: "string",
-        color: "#ffd8c4",
+        color: "#decf61",
       },
       {
         name: "Tree",
@@ -192,12 +192,12 @@ module.exports = {
         icon: `content/assets/avatar.png`,
       },
     },
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: "UA-134661352-1",
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-google-analytics`,
+    //   options: {
+    //     trackingId: "UA-134661352-1",
+    //   },
+    // },
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-twitter`,
     `gatsby-plugin-react-helmet`,
