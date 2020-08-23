@@ -26,7 +26,7 @@ Example 1:
 2. `-10^3 <= nums[i] <= 10^3`
 3. `-10^4 <= target <= 10^4`
 
-## CPP
+## C++
 
 ```cpp{numberLines: true}
 class Solution {

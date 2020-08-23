@@ -28,7 +28,7 @@ Example 2:
 3. It's guaranteed that the answer is unique, in other words the set of the top k frequent elements is unique.
 4. You can return the answer in any order.
 
-## CPP
+## C++
 
 ```cpp{numberLines: true}
 class Solution {

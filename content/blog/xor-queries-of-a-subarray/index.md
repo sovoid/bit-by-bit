@@ -44,7 +44,7 @@ Example 2:
 4. `queries[i].length == 2`
 5. `0 <= queries[i][0] <= queries[i][1] < arr.length`
 
-## CPP
+## C++
 
 ```cpp{numberLines: true}
 class Solution {
