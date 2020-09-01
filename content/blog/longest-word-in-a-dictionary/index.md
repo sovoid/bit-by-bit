@@ -32,10 +32,40 @@ Example 2:
 
 **Explanation**: Both `"apply"` and `"apple"` can be built from other words in the dictionary. However, `"apple"` is lexicographically smaller than `"apply"`.
 
-
-
 **Note:**
 
 * All the strings in the input will only contain lowercase letters.
 * The length of `words` will be in the range `[1, 1000]`.
 * The length of `words[i]` will be in the range `[1, 30]`.
+
+## C++
+
+```cpp
+class Solution {
+public:
+    string longestWord(vector<string>& words) {
+        set<string> dict;
+        
+        for(auto word: words)
+            dict.insert(word);
+        
+        string longest = "";
+        
+        for(auto word: dict) {
+            string prefix = "";
+            
+            for(auto ch: word) {
+                prefix += ch;
+                
+                if(dict.find(prefix) == dict.end())
+                    break;
+            }
+            
+            if(longest.size() < prefix.size() && dict.find(prefix) != dict.end())
+                longest = prefix;
+        }
+        
+        return longest;
+    }
+};
+```
