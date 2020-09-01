@@ -1,0 +1,67 @@
+backend:
+  name: git-gateway
+  branch: master
+  repo: und3fined-v01d/bit-by-bit
+  commit_messages:
+    create: Create {{collection}} "{{slug}}"
+    update: Update {{collection}} "{{slug}}"
+    delete: Delete {{collection}} "{{slug}}"
+    uploadMedia: Upload "{{path}}"
+    deleteMedia: Upload "{{path}}"
+
+publish_mode: editorial_workflow
+
+media_folder: "content/assets"
+
+collections:
+  - name: "blog"
+    label: "Blog"
+    folder: "content/blog"
+    path: "{{slug}}/index"
+    media_folder: ""
+    public_folder: ""
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Description", name: "description", widget: "text" }
+      - {
+          label: "Difficulty",
+          name: "difficulty",
+          widget: "select",
+          options: ["easy", "medium", "hard"],
+        }
+      - {
+          label: "Emoji",
+          name: "emoji",
+          widget: "select",
+          options: ["😄", "🧐", "🤬"],
+        }
+      - {
+          label: "Category",
+          name: "category",
+          widget: "select",
+          multiple: true,
+          options:
+            [
+              "facebook",
+              "adobe",
+              "amazon",
+              "microsoft",
+              "google",
+              "array",
+              "backtracking",
+              "bits",
+              "divide-and-conquer",
+              "dynamic-programming",
+              "graph",
+              "heap",
+              "linked-list",
+              "queue",
+              "stack",
+              "string",
+              "tree"
+            ],
+        }
+      - { label: "Body", name: "body", widget: "markdown" }

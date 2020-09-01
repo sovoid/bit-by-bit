@@ -58,6 +58,8 @@
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
   },
   "devDependencies": {
+    "gatsby-plugin-netlify-cms": "^4.3.12",
+    "netlify-cms-app": "^2.12.19",
     "underscore": "^1.10.2"
   }
 }
